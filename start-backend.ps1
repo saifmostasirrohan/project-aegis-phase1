@@ -1,7 +1,5 @@
 $ErrorActionPreference = "Stop"
 
-Set-Location $PSScriptRoot
-
 $port = 8001
 $conn = Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue
 if ($conn) {
@@ -11,5 +9,8 @@ if ($conn) {
     taskkill /PID $pidVal /T /F | Out-Null
 }
 
+# Run uvicorn from inside backend/ so relative imports and DB path resolve correctly
+Set-Location (Join-Path $PSScriptRoot "backend")
+
 Write-Host "Starting FastAPI backend on http://127.0.0.1:$port"
-& ".\.venv\Scripts\uvicorn.exe" server:app --port $port
+& "$PSScriptRoot\.venv\Scripts\uvicorn.exe" server:app --port $port
