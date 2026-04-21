@@ -1,0 +1,7 @@
+.env
+venv/
+__pycache__/
+backend/__pycache__/
+frontend/__pycache__/
+*.db
+.DS_Store
