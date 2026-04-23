@@ -5,3 +5,5 @@ backend/__pycache__/
 frontend/__pycache__/
 *.db
 .DS_Store
+.venv/
+.pip_install_output.txt
