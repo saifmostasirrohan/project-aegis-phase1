@@ -103,8 +103,8 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 
-print("\n--- TEST 3: Polysemy (River) ---")
-search("The river bank is flooding into the field.", threshold=0.0)
+print("\n--- TEST 5: Polysemy (Manufacturing) ---")
+search("The new manufacturing plant was shut down due to a power outage.", threshold=0.0)
 
-print("\n--- TEST 4: Polysemy (Storage) ---")
-search("We stored the heritage seeds in the genetic bank.", threshold=0.0)
+print("\n--- TEST 6: Polysemy (Finance) ---")
+search("The bond yield dropped significantly after the financial announcement.", threshold=0.0)
