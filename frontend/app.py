@@ -1,6 +1,20 @@
 import streamlit as st
 import json
 import api_client
+import sys
+from pathlib import Path
+
+# Look up two levels to find the root folder where init_db.py sits
+root_path = Path(__file__).resolve().parents[1]
+if str(root_path) not in sys.path:
+    sys.path.append(str(root_path))
+
+try:
+    from init_db import initialize_production_database
+    # Automatically builds the vector database if it's missing on the cloud server
+    initialize_production_database()
+except Exception:
+    pass
 
 st.set_page_config(page_title="Aegis Crop Intel", page_icon="🌱")
 
